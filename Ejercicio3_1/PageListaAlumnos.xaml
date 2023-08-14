@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio3_1.PageListaAlumnos"
+             Title="Lista de Alumnos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Clicked="AgregarToolBarItem_Clicked">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="ListaAlumnosView" ItemsSource="{Binding alumnos}" HasUnevenRows="True" ItemTapped="ListaAlumnosView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding foto}" HeightRequest="60" WidthRequest="60"/>
+                            
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding nombres}"/>
+                                <Label Text="{Binding apellidos}" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding sexo}" />
+                                <Label Text="{Binding direccion}"  />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" >
+                                <Image Source="edit.png"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EditarTap" 
+                                                              Tapped= "EditarTap_Tapped"
+                                                              CommandParameter="{Binding id}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" >
+                                <Image Source="delete.png"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EliminarTap" 
+                                                              Tapped= "EliminarTap_Tapped"
+                                                              CommandParameter="{Binding id}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio3_1.PageAgregarAlumnos">
+    <ContentPage.Content>
+        <StackLayout Padding="15" VerticalOptions="CenterAndExpand">
+            <Label Text="Agregar Alumno" VerticalOptions="Center" HorizontalOptions="Center" 
+                   FontSize="30" FontAttributes="Bold" Padding="15"/>
+            
+            <Entry x:Name="txtnombre" Placeholder="Ingrese su nombre" FontSize="16"/>
+            <Entry x:Name="txtapellido" Placeholder="Ingrese su apellido" FontSize="16"/>
+            <Picker Title="Seleccione su sexo" x:Name="txtsexo" FontSize="16">
+                <Picker.Items>
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+                    <x:String>Otro</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Entry x:Name="txtdireccion" Placeholder="Ingrese su direccion" FontSize="16"/>
+
+            <Button Text="Guardar" x:Name="BtnGuardar" FontSize="16" CornerRadius="15" Clicked="BtnGuardar_Clicked"/>
+            <Button Text="Cancelar" x:Name="BtnCancelar" FontSize="16" CornerRadius="15" Clicked="BtnCancelar_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
